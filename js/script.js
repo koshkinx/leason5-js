@@ -11,17 +11,20 @@ function User(name, secondName, age, id) {
   }
   this.info = new Info();
   console.table(this.info);
-  return this.info;
 }
 
 let a = new User("james", "Bond", "33", "7");
+let b = new User("Salo", "Malo", "777", "3");
 
 // 2)Створити методи на прототайп для оновлення ключів об'єкту юзер наприклад змінити ім'я , вік користувача.ІD не міняється
-User.prototype.updateInfo = function (name, age) {
-  this.name = "John";
-  this.age = 12;
+User.prototype.updateInfo = function (name, secondName, age) {
+  this.name = name;
+  this.secondName = secondName;
+  this.age = age;
+  return;
 };
-console.log(User.prototype.updateInfo);
+a.updateInfo("Innokentiy", "Mazerati", 30);
+console.log(a);
 
 // 3) Створити функцію конструктор створення (прямокутника, квадрата ) в прототип винести методи обчислення Площі
 // , переметра, та визначення діагоналі
@@ -39,8 +42,9 @@ console.info([qurt.D, qurt.S, qurt.P]);
 // this.S = this.sizeA * this.sizeB;
 // this.P = this.sizeA + this.sizeA + this.sizeB + this.sizeB;
 // 4) Отримати від користувача значення name  вивести в консоль, першу і останню літеру з name в ерхньому регістрі.
-let upper = a.name.replace(a.name[0], a.name[0].toUpperCase());
-console.log(upper.replace(upper[4], upper[4].toUpperCase()));
+let myWord = prompt("Input name");
+let upper = myWord.replace(myWord[0], myWord[0].toUpperCase());
+console.log(upper.slice(0, -1) + upper.at(-1).toUpperCase());
 // 5) Створити функцію яка отримує стрінг, обрізає пробіли спочатку і кінця стрінгу, якщо стрінг маж довжину
 //  більше 10 то відрізає все після 10 і додає 3 крапки
 
